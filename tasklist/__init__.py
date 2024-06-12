@@ -1,13 +1,9 @@
 class Task:
-    def __init__(self, task):
-        self.initialized = False
-        self.init = lambda: None
-        self.task = task
-
-    def __init__(self, init, task):
+    def __init__(self, init=lambda:(True), task=lambda:(True), id=""):
         self.initialized = False
         self.init = init
         self.task = task
+        self.id = id
 
     def reset(self):
         self.initialized = False
@@ -20,9 +16,6 @@ class Task:
 
 
 class TaskList:
-    def __init__(self):
-        self.tasks = []
-
     def __init__(self, *tasks):
         self.tasks = list(tasks)
 
@@ -71,3 +64,4 @@ class ParallelTask(Task):
 
     def clear(self):
         self.list = []
+
