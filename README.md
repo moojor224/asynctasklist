@@ -107,3 +107,7 @@ To run the tests:
 ```bash
 pytest
 ```
+
+## Upcoming Features
+
+ - true asyncronous behavior with threads
