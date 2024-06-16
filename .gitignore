@@ -9,3 +9,6 @@ venv
 .DS_Store
 dist
 build
+
+# ignore compiled builds
+/*.whl
