@@ -1,5 +1,5 @@
 [project]
-name = "tasklist"
+name = "pytasklist"
 version = "0.4"
 description = "descript goes here"
 readme = "README.md"
@@ -18,10 +18,10 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-Homepage = "https://github.com/moojor224/tasklist"
-Changelog = "https://github.com/moojor224/tasklist/releases"
-Issues = "https://github.com/moojor224/tasklist/issues"
-CI = "https://github.com/moojor224/tasklist/actions"
+Homepage = "https://github.com/moojor224/pytasklist"
+Changelog = "https://github.com/moojor224/pytasklist/releases"
+Issues = "https://github.com/moojor224/pytasklist/issues"
+CI = "https://github.com/moojor224/pytasklist/actions"
 
 
 [project.optional-dependencies]
