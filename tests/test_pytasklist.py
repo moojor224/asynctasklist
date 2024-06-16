@@ -1,4 +1,4 @@
-from pytasklist import example_function
+from pytasklist import TaskList, Task, ParallelTask
 
 
 def test_example_function():
