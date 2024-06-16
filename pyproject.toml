@@ -1,6 +1,6 @@
 [project]
 name = "pytasklist"
-version = "0.4"
+version = "0.1"
 description = "descript goes here"
 readme = "README.md"
 requires-python = ">=2.7"
