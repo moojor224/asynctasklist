@@ -57,7 +57,7 @@ class TaskList:
         t = self.tasks[0]  # get the next task
         isTaskDone = t.execute()  # run it
         if isTaskDone:  # if the task is done, remove it from the list
-            self.tasks.pop(0)
+            self.tasks = self.tasks[1::]
         return self.isDone()  # return whether the list is done
 
     """Clear the tasklist"""
