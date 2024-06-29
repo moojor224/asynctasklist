@@ -37,13 +37,14 @@ class TaskList:
 
     """Add a task to the list"""
 
-    def add(self, task) -> None:
-        if (
-            isinstance(task, Task)
-            or isinstance(task, TaskList)
-            or isinstance(task, ParallelTask)
-        ):
-            self.tasks.append(task)
+    def add(self, *tasks) -> None:
+        for task in tasks:
+            if (
+                isinstance(task, Task)
+                or isinstance(task, TaskList)
+                or isinstance(task, ParallelTask)
+            ):
+                self.tasks.append(task)
 
     """Check if the tasklist is done with executing all tasks"""
 
