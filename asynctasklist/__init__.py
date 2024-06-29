@@ -67,9 +67,10 @@ class TaskList:
 
 
 class ParallelTask:
-    def __init__(self, stop_when_done=False):
+    def __init__(self, stop_when_done=False, delay=0):
         self.tasks = []
         self.stop_when_done = stop_when_done
+        self.delay = delay
 
     """Add a task to the list"""
 
@@ -88,10 +89,13 @@ class ParallelTask:
         i = 0
         while i < len(self.tasks):
             if not self.tasks[i].execute():
+                sleep(self.delay)
                 done = False
             else:
                 if self.stop_when_done:
-                    self.tasks.pop(i)
+                    ls = list(self.tasks)
+                    ls.pop(i)
+                    self.tasks = ls
                     i -= 1
             i += 1
         return done
