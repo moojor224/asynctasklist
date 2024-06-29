@@ -1,6 +1,6 @@
 [project]
 name = "asynctasklist"
-version = "0.2"
+version = "0.3"
 description = "descript goes here"
 readme = "README.md"
 requires-python = ">=2.7"
