@@ -1,4 +1,6 @@
 from time import sleep
+import asyncio
+
 
 class Task:
     def __init__(self, init=lambda: (True), task=lambda: (True), id=""):
@@ -24,6 +26,7 @@ class Task:
 class TaskList:
     def __init__(self) -> None:
         self.tasks = []
+        self.running = False
 
     """Get the number of tasks in the list"""
 
@@ -62,6 +65,21 @@ class TaskList:
         if isTaskDone:  # if the task is done, remove it from the list
             self.tasks = self.tasks[1::]
         return self.isDone()  # return whether the list is done
+
+    """asynronously start the tasklist"""
+
+    def start_async(self):
+        if self.running:
+            return
+        self.running = True
+
+        async def run():
+            while not self.isDone():
+                self.execute()
+            self.running = False
+
+        asyncio.run(run())
+        pass
 
     """Clear the tasklist"""
 
