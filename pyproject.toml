@@ -1,7 +1,7 @@
 [project]
 name = "asynctasklist"
 version = "0.3"
-description = "descript goes here"
+description = "a simple tasklist library for running tasks asynchronously or synchronously"
 readme = "README.md"
 requires-python = ">=2.7"
 authors = [{name = "moojor224"}]
