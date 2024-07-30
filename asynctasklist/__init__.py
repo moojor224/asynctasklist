@@ -1,4 +1,4 @@
-from time import sleep
+from time import sleep as _sleep
 
 
 class Task:
@@ -131,7 +131,7 @@ class ParallelTask:
         i = 0
         while i < len(self.tasks):
             if not self.tasks[i].execute():
-                sleep(self.delay)
+                _sleep(self.delay)
                 done = False
             else:
                 if self.stop_when_done:
