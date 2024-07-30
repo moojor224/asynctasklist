@@ -1,5 +1,4 @@
 from time import sleep
-import asyncio
 
 
 class Task:
@@ -66,9 +65,11 @@ class TaskList:
             self.tasks = self.tasks[1::]
         return self.isDone()  # return whether the list is done
 
-    """asynronously start the tasklist"""
+    """asyncronously start the tasklist"""
 
     def start_async(self):
+        import asyncio
+
         if self.running:
             return
         self.running = True
@@ -80,6 +81,26 @@ class TaskList:
 
         asyncio.run(run())
         pass
+
+    """asyncronously start the tasklist in a new thread"""
+
+    def start_async_thread(self):
+        import threading
+
+        if self.running:
+            return
+        self.running = True
+
+        def task_worker():
+            while not self.isDone():
+                self.execute()
+            self.running = False
+
+        thread = threading.Thread(
+            target=task_worker, daemon=True
+        )  # set daemon to true to stop thread when program ends
+        thread.start()
+        return thread
 
     """Clear the tasklist"""
 
